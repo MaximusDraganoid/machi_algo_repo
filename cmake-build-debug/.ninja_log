@@ -1,0 +1,14 @@
+# ninja log v5
+4	723	6605853444820018	CMakeFiles/untitled.dir/main.cpp.obj	3641a943da152334
+1	229	6608459881066785	build.ninja	694e45a0c0d7b668
+151	374	6605855209255654	untitled.exe	b2dfb38dfc154151
+4	151	6605855207045601	CMakeFiles/untitled.dir/impl/math_func.cpp.obj	dcd9123520a08233
+42	322	6605800736091486	CMakeFiles/untitled.dir/impl/util_function.cpp.obj	b0b132ea41d9c5f1
+6	160	6605807576469250	CMakeFiles/untitled.dir/impl/summ.cpp.obj	26371502b9c492a4
+108	645	6608489549632987	CMakeFiles/untitled.dir/impl/util_function.cpp.obj	b0b132ea41d9c5f1
+85	654	6608489549723287	CMakeFiles/untitled.dir/burnikel_zigler_division/function.cpp.obj	4f7647c84c679ebf
+8	666	6608489550008076	CMakeFiles/untitled.dir/impl/math_func.cpp.obj	dcd9123520a08233
+63	1098	6608489554530379	CMakeFiles/untitled.dir/main.cpp.obj	3641a943da152334
+1099	1369	6608489557266109	untitled.exe	88ded4e652d1f1b6
+7	585	6608492092746994	CMakeFiles/untitled.dir/main.cpp.obj	3641a943da152334
+585	796	6608492094842096	untitled.exe	88ded4e652d1f1b6

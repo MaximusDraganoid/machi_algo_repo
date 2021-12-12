@@ -5,16 +5,27 @@
 // как [3, 2, 1].
 
 void test();
+void testMultiplyLenByShort();
 
 int main() {
-    unsigned int testNum = 65535;
-    unsigned int t = testNum >> 1;
-    std::cout << t << std::endl;
 
-    t = testNum << 1;
-    std::cout << t << std::endl;
+    testMultiplyLenByShort();
 
     return 0;
+}
+
+
+void testMultiplyLenByShort() {
+    unsigned short int firstArray[] = {9, 9, 9, 9, 9};
+    unsigned int resultLen = 0;
+    unsigned short int multiplier = 5;
+    unsigned short int *result =  multipleByShort(firstArray, 5, multiplier, resultLen);
+
+    std::cout << "Result of multiply. Len is " << resultLen << std::endl;
+    for (int i = 0; i < resultLen; i++) {
+        std::cout << result[i] << ' ';
+    }
+    std::cout << std::endl;
 }
 
 void test() {

@@ -4,6 +4,10 @@
 
 #include "function.h"
 
+//todo: проверить верность работы операций со сдвигами!!! возможно есть ошибка в текущей работе с ними
+//todo: скорее всего для получения младших 16 бт нужно просто присвоить значение к short int, а при
+//todo: получении старших уже выполнять побитовые сдвиги
+
 //a - 2 words
 //b - 1 word
 unsigned * divTwoDigitsByOne(unsigned int a[], unsigned int b[]) {
@@ -43,6 +47,6 @@ unsigned short* divThreeHalvesByTwo(unsigned short int a1,
                                     unsigned short int a3,
                                     unsigned short int b1,
                                     unsigned short int b2) {
-    
+
     return nullptr;
 }

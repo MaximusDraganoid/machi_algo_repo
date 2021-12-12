@@ -125,3 +125,46 @@ unsigned short int *multiply(unsigned short int firstArray[],
     resultArray = plus(resultArray, perenos, resultSize, resultSize);
     return resultArray;
 }
+
+//a * k
+unsigned short int* multipleByShort(unsigned short int *a,
+                                    unsigned int lenA,
+                                    unsigned short int multiplier,
+                                    unsigned int &resultLen) {
+
+    resultLen = lenA;
+    unsigned short int *result = new unsigned short int[lenA];
+    unsigned short int perenos = 0;
+    unsigned int buff = 0;
+    for (int i = 0; i < lenA; i++) {
+        buff = perenos + multiplier * a[i];
+        perenos = buff / OSN;
+        result[i] = buff % OSN;
+    }
+
+    if (perenos) {
+        resultLen = resultLen + 1;
+        unsigned short int *newResult = new unsigned short int[resultLen];
+        for(int i = 0; i < lenA; i++) {
+            newResult[i] = result[i];
+        }
+        newResult[lenA] = perenos;
+        result = newResult;
+    }
+
+    return result;
+}
+
+
+// a:b
+unsigned short int* schoolDivision_quotient(unsigned short int *a, unsigned int lenA,
+                                   unsigned short int *b, unsigned int lenB) {
+    unsigned short int *result = new unsigned short int[lenA - lenB + 1];
+
+
+}
+
+unsigned short int* schoolDivision_remainder(unsigned short int *a, unsigned int lenA,
+                                            unsigned short int *b, unsigned int lenB) {
+
+}

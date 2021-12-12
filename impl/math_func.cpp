@@ -56,9 +56,9 @@ int compare(unsigned short int firstArray[],
         if (firstArray[i] == secondArray[i])
             continue;
         if (firstArray[i] > secondArray[i]) {
-            return -1;
-        } else {
             return 1;
+        } else {
+            return -1;
         }
     }
     return 0;
@@ -155,13 +155,138 @@ unsigned short int* multipleByShort(unsigned short int *a,
     return result;
 }
 
+int compare(unsigned short int firstArray[],
+            unsigned short int secondArray[],
+            unsigned short int firstSize,
+            unsigned short int secondSize) {
+    if (firstSize > secondSize) {
+        return 1;
+    }
+
+    if (secondSize > firstSize) {
+        return -1;
+    }
+
+    return compare(firstArray, secondArray, firstSize);
+}
+
 
 // a:b
+//todo: нужно каким-либо образом предсказывать длину частного и остатка
+//todo: пока вместо выделения конкретного объема памяти, мы выделим буферы определенных размеров
+//todo: затем будем их либо увеличивать либо уменьшать
 unsigned short int* schoolDivision_quotient(unsigned short int *a, unsigned int lenA,
-                                   unsigned short int *b, unsigned int lenB) {
-    unsigned short int *result = new unsigned short int[lenA - lenB + 1];
+                                   unsigned short int *b, unsigned int lenB, unsigned int &resLen) {
+    //случай, если делитель больше делимго
+    if (lenA < lenB) {
+        resLen = 1;
+        return new unsigned short int{0};
+    }
 
+    //случай, если числа одинаковой длины
+    if (lenA == lenB) {
+        int comparison = compare(a, b, lenA);
+        //случай, когда делитель больше делимого
+        if (comparison < 0) {
+            resLen = 1;
+            return new unsigned short int{0};
+        }
 
+        //случай, когда делитель равен делимому
+        if (comparison == 0) {
+            resLen = 1;
+            return new unsigned short int{1};
+        }
+    }
+
+    resLen = lenA;
+    unsigned short int* result = new unsigned short int[lenA];
+    for (int i = 0; i < resLen; i++) {
+        result[i] = 0;
+    }
+
+    unsigned short int* current = new unsigned short int[lenB];
+    for (int i = 0; i < lenB; i++) {
+        current[lenB - i - 1] = a[lenA - i - 1];
+    }
+
+    unsigned int currentLen = lenB;
+    int count = 0;
+
+    int i = lenA - 1;
+
+    while (compare(current, b, currentLen, lenB) > 0) {
+        printLine();
+
+        unsigned short int x = 0;
+        unsigned short int l = 0, r = OSN;
+
+        print(result, resLen);
+        print(current, currentLen);
+
+        //подбор множителя
+        while (l <= r) {
+            int m = (l + r) >> 1;
+            unsigned int podobrannoyZnachenieLen = 0;
+            unsigned short int* podobrannoyZnachenie = multipleByShort(b, lenB, m, podobrannoyZnachenieLen);
+            print(podobrannoyZnachenie, podobrannoyZnachenieLen);
+
+            if (currentLen >= podobrannoyZnachenieLen && compare(podobrannoyZnachenie, current, podobrannoyZnachenieLen, currentLen) <= 0) {
+                x = m;
+                l = m + 1;
+            } else {
+                r = m - 1;
+            }
+        }
+
+        //запись подобранного множителя и вычитание
+        result[i] = x;
+        unsigned int bufLen = 0;
+        unsigned short int* subtracted = multipleByShort(b, lenB, x, bufLen);
+        current = minus(current, subtracted, currentLen);
+        print(current, currentLen);
+        if (current[currentLen - 1] != 0) {
+
+            unsigned short int*  newCurrent = new unsigned short int[currentLen + 1];
+            for (int j = 0; j < currentLen; j++){
+                newCurrent[j + 1] = current[j];
+            }
+            currentLen = currentLen + 1;
+            if (lenA - lenB - 1 - count <= lenB) {
+                newCurrent[0] = a[lenA - lenB - 1 - count];
+            }
+            current = newCurrent;
+
+        } else {
+            for (int j = currentLen - 1; j > 0; j--) {
+                current[j] = current[j - 1];
+            }
+            print(current, currentLen);
+            if (lenB != currentLen) {
+                currentLen = lenB;
+                unsigned short int* newCurrent = new unsigned short int[currentLen];
+                for (int j = currentLen - 1; j >= 0; j--) {
+                    newCurrent[j] = current[j + 1];
+                }
+
+                current = newCurrent;
+
+            }
+            if (lenA - lenB - 1 - count <= lenB) {
+                current[0] = a[lenA - lenB - 1 - count];
+            }
+
+        }
+        i--;
+        count++;
+        print(current, currentLen);
+    }
+
+    printLine();
+    print(result, resLen);
+    print(current, currentLen);
+    //todo: преобразовать вывод данных результата - есть ошибка в порядке
+    return result;
 }
 
 unsigned short int* schoolDivision_remainder(unsigned short int *a, unsigned int lenA,

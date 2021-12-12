@@ -6,14 +6,33 @@
 
 void test();
 void testMultiplyLenByShort();
+void testSchoolDivision_quotient();
 
 int main() {
 
-    testMultiplyLenByShort();
-
+    testSchoolDivision_quotient();
     return 0;
 }
 
+//tests: 3678 : 32 - true
+//3678 : 31 - true
+//3678 : 132 - true
+void testSchoolDivision_quotient() {
+    unsigned short int a[] = {8, 7, 6, 3};
+    unsigned int lenA = 4;
+    unsigned short int b[] = {1, 3};
+    unsigned int lenB = 2;
+    unsigned int resultLen = 0;
+
+    unsigned short int* result = schoolDivision_quotient(a, lenA, b, lenB, resultLen);
+
+    std::cout << "Result of division. Len is " << resultLen << std::endl;
+    for (int i = 0; i < resultLen; i++) {
+        std::cout << result[i] << ' ';
+    }
+    std::cout << std::endl;
+
+}
 
 void testMultiplyLenByShort() {
     unsigned short int firstArray[] = {9, 9, 9, 9, 9};

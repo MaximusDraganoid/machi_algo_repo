@@ -10,6 +10,7 @@ int const OSN = 10;
 
 int max(int a, int b);
 
-void compare();
+void print(unsigned short int* array, unsigned int len);
 
+void printLine();
 #endif //UNTITLED_UTIL_FUNCTION_H

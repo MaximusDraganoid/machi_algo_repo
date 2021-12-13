@@ -4,6 +4,8 @@
 #include "math_func.h"
 #include "util_function.h"
 
+int findZeros(unsigned short *array, unsigned int len);
+
 //size of result array is sizeOfArray or sizeOfArray + 1.
 //сложение чисел одной длины
 unsigned short int *plus(unsigned short int firstArray[],
@@ -215,7 +217,8 @@ unsigned short int* schoolDivision_quotient(unsigned short int *a, unsigned int 
 
     int i = lenA - 1;
 
-    while (compare(current, b, currentLen, lenB) > 0) {
+    while (compare(current, b, currentLen, lenB) >= 0
+        || lenA - lenB - 1 - count <= lenA) {
         printLine();
 
         unsigned short int x = 0;
@@ -245,6 +248,11 @@ unsigned short int* schoolDivision_quotient(unsigned short int *a, unsigned int 
         unsigned short int* subtracted = multipleByShort(b, lenB, x, bufLen);
         current = minus(current, subtracted, currentLen);
         print(current, currentLen);
+
+        if (lenA - lenB - 1 - count > lenA) {
+            break;
+        }
+
         if (current[currentLen - 1] != 0) {
 
             unsigned short int*  newCurrent = new unsigned short int[currentLen + 1];
@@ -252,17 +260,26 @@ unsigned short int* schoolDivision_quotient(unsigned short int *a, unsigned int 
                 newCurrent[j + 1] = current[j];
             }
             currentLen = currentLen + 1;
-            if (lenA - lenB - 1 - count <= lenB) {
+            if (lenA - lenB - 1 - count <= lenA) {
                 newCurrent[0] = a[lenA - lenB - 1 - count];
             }
             current = newCurrent;
 
         } else {
-            for (int j = currentLen - 1; j > 0; j--) {
-                current[j] = current[j - 1];
+            int numOfZero = findZeros(current, currentLen);
+            if (numOfZero != currentLen) {
+                while(current[currentLen - 1] == 0 ) {
+                    for (int j = currentLen - 1; j > 0; j--) {
+                        current[j] = current[j - 1];
+                    }
+                }
+            }
+
+            for (int i = 0; i < numOfZero; i++) {
+                current[i] = 0;
             }
             print(current, currentLen);
-            if (lenB != currentLen) {
+            if (lenB != currentLen && numOfZero > 1 ) {
                 currentLen = lenB;
                 unsigned short int* newCurrent = new unsigned short int[currentLen];
                 for (int j = currentLen - 1; j >= 0; j--) {
@@ -272,11 +289,12 @@ unsigned short int* schoolDivision_quotient(unsigned short int *a, unsigned int 
                 current = newCurrent;
 
             }
-            if (lenA - lenB - 1 - count <= lenB) {
+            if (lenA - lenB - 1 - count <= lenA) {
                 current[0] = a[lenA - lenB - 1 - count];
             }
 
         }
+
         i--;
         count++;
         print(current, currentLen);
@@ -287,6 +305,18 @@ unsigned short int* schoolDivision_quotient(unsigned short int *a, unsigned int 
     print(current, currentLen);
     //todo: преобразовать вывод данных результата - есть ошибка в порядке
     return result;
+}
+
+int findZeros(unsigned short *array, unsigned int len) {
+    int count = 0;
+    for (int i = len - 1; i >= 0; i--) {
+        if (array[i] != 0) {
+            break;
+        } else {
+            count++;
+        }
+    }
+    return count;
 }
 
 unsigned short int* schoolDivision_remainder(unsigned short int *a, unsigned int lenA,

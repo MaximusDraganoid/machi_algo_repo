@@ -56,4 +56,7 @@ unsigned short int* schoolDivision_quotient(unsigned short int *a, unsigned int 
 unsigned short int* schoolDivisionLongByShort_quotient(unsigned short int *a, unsigned int lenA,
                                                        unsigned short int b, unsigned int &resLen);
 
+unsigned short int* schoolDivision_quotient_and_remainder(unsigned short int *a, unsigned int lenA,
+                                                          unsigned short int *b, unsigned int lenB, unsigned int &resLen);
+
 #endif //UNTITLED_MATH_FUNC_H

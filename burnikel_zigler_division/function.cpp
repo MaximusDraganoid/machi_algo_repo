@@ -86,7 +86,7 @@ unsigned short int* recursiveDivision(unsigned short int* a,
     if (n % 2 == 1 || n <= DIV_LIM) {
         unsigned int resultLen = 0;
         //долже возвращать склейку из целого и остатка
-        return schoolDivision_quotient(a, 2 * n, b, n, resultLen);
+        return schoolDivision_quotient_and_remainder(a, 2 * n, b, n, resultLen);
         //школьное деление A на B
     } else {
         unsigned short int* a4 = a;

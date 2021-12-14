@@ -3,6 +3,7 @@
 //
 #include "math_func.h"
 #include "util_function.h"
+#include <iostream>
 
 int findZeros(unsigned short *array, unsigned int len);
 
@@ -91,7 +92,46 @@ unsigned short int *minus(unsigned short int firstArray[],
     return resultArray;
 }
 
+//умножение длинных чисел разной длины
+unsigned short int *multiplyDiffLen(unsigned short int firstArray[],
+                             unsigned short int secondArray[],
+                             unsigned short int firstLen,
+                             unsigned short int secondLen,
+                             unsigned short int &resultSize) {
+    int buff = 0;
+    resultSize = firstLen + secondLen;
+    unsigned short int *resultArray = new unsigned short int[resultSize];
+    for (int i = 0; i < resultSize; i++) {
+        resultArray[i] = 0;
+    }
 
+    unsigned short int *perenos = new unsigned short int[resultSize];
+    for (int i = 0; i < resultSize; i++) {
+        perenos[i] = 0;
+    }
+
+    for (int ix = 0; ix < firstLen; ix++) {
+        for (int jx = 0; jx < secondLen; jx++) {
+            buff = resultArray[ix + jx] + firstArray[ix] * firstArray[jx];
+            if (buff > OSN) {
+                perenos[ix + jx + 1] += buff / OSN;
+            }
+            resultArray[ix + jx] = buff % OSN;
+        }
+    }
+
+    //нормалзуем перенос для сложения дальше
+    for (int i = 0; i < resultSize - 1; i++) {
+        perenos[i + 1] += perenos[i] / OSN;
+        perenos[i] = perenos[i] % OSN;
+    }
+
+    resultArray = plus(resultArray, perenos, resultSize, resultSize);
+    return resultArray;
+}
+
+
+//умножение длинных чисел одинаковой длины
 unsigned short int *multiply(unsigned short int firstArray[],
                              unsigned short int secondArray[],
                              unsigned short int sizeOfSummation,
@@ -322,4 +362,23 @@ int findZeros(unsigned short *array, unsigned int len) {
 unsigned short int* schoolDivision_remainder(unsigned short int *a, unsigned int lenA,
                                             unsigned short int *b, unsigned int lenB) {
 
+}
+
+unsigned short int* schoolDivisionLongByShort_quotient(unsigned short int *a, unsigned int lenA,
+                                                       unsigned short int b, unsigned int &resLen) {
+
+    resLen = lenA;
+    unsigned short int* result = new unsigned short int[resLen];
+    unsigned short int ost = 0;
+
+    for (int i = lenA - 1; i >= 0; i--) {
+        unsigned int cur = ost * OSN + a[i];
+        result[i] = cur / b;
+        ost = cur % b;
+    }
+
+    std::cout << " Ostatok: " << ost << std::endl;
+
+
+    return result;
 }

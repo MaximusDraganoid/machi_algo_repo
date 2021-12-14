@@ -6,13 +6,31 @@
 
 void test();
 void testMultiplyLenByShort();
+
 void testSchoolDivision_quotient();
+void testSchoolDivisionLongByShort_quotient();
 
 int main() {
 
-    testSchoolDivision_quotient();
+    testSchoolDivisionLongByShort_quotient();
     return 0;
 }
+
+
+void testSchoolDivisionLongByShort_quotient() {
+    unsigned short int a[] = {8, 7, 6, 3, 6};
+    unsigned int lenA = 5;
+    unsigned short int b = 9;
+    unsigned int resLen = 0;
+    unsigned short int* result = schoolDivisionLongByShort_quotient(a, lenA, b, resLen);
+
+    std::cout << "Result of division. Len is " << resLen << std::endl;
+    for (int i = 0; i < resLen; i++) {
+        std::cout << result[i] << ' ';
+    }
+    std::cout << std::endl;
+}
+
 
 //tests:
 //63678 : 59 = 1079 (17) - true
@@ -40,10 +58,10 @@ int main() {
 //unsigned int lenB = 1;
 
 void testSchoolDivision_quotient() {
-//    unsigned short int a[] = {8, 7, 6, 3, 6};
-//    unsigned int lenA = 5;
-//    unsigned short int b[] = {1, 3, 1};
-//    unsigned int lenB = 3;
+    unsigned short int a[] = {8, 7, 6, 3, 6};
+    unsigned int lenA = 5;
+    unsigned short int b[] = {1, 3, 1};
+    unsigned int lenB = 3;
     unsigned int resultLen = 0;
 
     unsigned short int* result = schoolDivision_quotient(a, lenA, b, lenB, resultLen);

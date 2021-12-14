@@ -11,6 +11,14 @@ unsigned short int *plus(unsigned short int firstArray[],
                          unsigned short int sizeOfSummation,
                          unsigned short int &resultSize);
 
+
+//умножение чисел разной длины
+unsigned short int *multiplyDiffLen(unsigned short int firstArray[],
+                                    unsigned short int secondArray[],
+                                    unsigned short int firstLen,
+                                    unsigned short int secondLen,
+                                    unsigned short int &resultSize);
+
 //умножение чисел одинаковой длины
 unsigned short int *multiply(unsigned short int firstArray[],
                              unsigned short int secondArray[],
@@ -39,8 +47,13 @@ unsigned short int* multipleByShort(unsigned short int *a,
                                     unsigned short int multiplier,
                                     unsigned int &resultLen);
 
+unsigned short int* multiplyShortByShort();
+
 // a div b
 unsigned short int* schoolDivision_quotient(unsigned short int *a, unsigned int lenA,
                                             unsigned short int *b, unsigned int lenB, unsigned int &resLen);
+
+unsigned short int* schoolDivisionLongByShort_quotient(unsigned short int *a, unsigned int lenA,
+                                                       unsigned short int b, unsigned int &resLen);
 
 #endif //UNTITLED_MATH_FUNC_H

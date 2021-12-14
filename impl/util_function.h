@@ -7,6 +7,7 @@
 
 //int const OSN = 65535;
 int const OSN = 10;
+int const DIV_LIM = 4;
 
 int max(int a, int b);
 

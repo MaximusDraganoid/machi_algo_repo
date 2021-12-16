@@ -33,7 +33,7 @@ unsigned short int* multipleByShortBigOsn(unsigned short int *a,
                                     unsigned int &resultLen);
 
 //вычитание чисел одинаковой длины
-unsigned short int *minus(unsigned short int firstArray[],
+unsigned short int *minusBigOsn(unsigned short int firstArray[],
                           unsigned short int secondArray[],
                           unsigned short int sizeOfDifferences);
 

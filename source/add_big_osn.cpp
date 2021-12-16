@@ -25,7 +25,7 @@ unsigned short int *plusBigOsn(unsigned short int firstArray[],
         resultArray[i] = buff_res;
     }
 
-    if (perenos == 1) {
+    if (perenos != 0) {
 
         unsigned short int *buff = new unsigned short int[resultSize];
         for (int i = 0; i < resultSize; i++) {
@@ -37,7 +37,7 @@ unsigned short int *plusBigOsn(unsigned short int firstArray[],
             resultArray[i] = buff[i];
         }
 
-        resultArray[resultSize] = 1;
+        resultArray[resultSize] = perenos;
         resultSize = resultSize + 1;
     }
 

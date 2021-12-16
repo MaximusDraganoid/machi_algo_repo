@@ -1,8 +1,6 @@
 #include <iostream>
 #include "headers/math_func.h"
 
-//access_token git - //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
-
 //числа записаны в обратном порядке. Т.е. числов 123 в массиве будет представлено
 // как [3, 2, 1].
 

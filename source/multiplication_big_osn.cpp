@@ -2,11 +2,11 @@
 // Created by max on 16.12.2021.
 //
 
-#include "../headers/math_func.h"
+#include "../headers/math_func_big_osn.h"
 #include "../headers/util_function.h"
 
 //умножение длинных чисел разной длины
-unsigned short int *multiplyDiffLen(unsigned short int firstArray[],
+unsigned short int *multiplyDiffLenBigOsn(unsigned short int firstArray[],
                                     unsigned short int secondArray[],
                                     unsigned short int firstLen,
                                     unsigned short int secondLen,
@@ -26,26 +26,24 @@ unsigned short int *multiplyDiffLen(unsigned short int firstArray[],
     for (int ix = 0; ix < firstLen; ix++) {
         for (int jx = 0; jx < secondLen; jx++) {
             buff = resultArray[ix + jx] + firstArray[ix] * secondArray[jx];
-            if (buff > OSN) {
-                perenos[ix + jx + 1] += buff / OSN;
-            }
-            resultArray[ix + jx] = buff % OSN;
+            perenos[ix + jx + 1] += buff >> SHIFT;
+            resultArray[ix + jx] = buff;
         }
     }
 
     //нормалзуем перенос для сложения дальше
     for (int i = 0; i < resultSize - 1; i++) {
-        perenos[i + 1] += perenos[i] / OSN;
-        perenos[i] = perenos[i] % OSN;
+        perenos[i + 1] += perenos[i] >> OSN;
+        perenos[i] = perenos[i];
     }
 
-    resultArray = plus(resultArray, perenos, resultSize, resultSize);
+    resultArray = plusBigOsn(resultArray, perenos, resultSize, resultSize);
     return resultArray;
 }
 
 
 //умножение длинных чисел одинаковой длины
-unsigned short int *multiply(unsigned short int firstArray[],
+unsigned short int *multiplyBigOsn(unsigned short int firstArray[],
                              unsigned short int secondArray[],
                              unsigned short int sizeOfSummation,
                              unsigned short int &resultSize) {
@@ -65,24 +63,24 @@ unsigned short int *multiply(unsigned short int firstArray[],
         for (int jx = 0; jx < sizeOfSummation; jx++) {
             buff = resultArray[ix + jx] + firstArray[ix] * secondArray[jx];
             if (buff > OSN) {
-                perenos[ix + jx + 1] += buff / OSN;
+                perenos[ix + jx + 1] += buff >> SHIFT;
             }
-            resultArray[ix + jx] = buff % OSN;
+            resultArray[ix + jx] = buff;
         }
     }
 
     //нормалзуем перенос для сложения дальше
     for (int i = 0; i < resultSize - 1; i++) {
-        perenos[i + 1] += perenos[i] / OSN;
-        perenos[i] = perenos[i] % OSN;
+        perenos[i + 1] += perenos[i] >> SHIFT;
+        perenos[i] = perenos[i];
     }
 
-    resultArray = plus(resultArray, perenos, resultSize, resultSize);
+    resultArray = plusBigOsn(resultArray, perenos, resultSize, resultSize);
     return resultArray;
 }
 
 //a * k
-unsigned short int* multipleByShort(unsigned short int *a,
+unsigned short int* multipleByShortBigOsn(unsigned short int *a,
                                     unsigned int lenA,
                                     unsigned short int multiplier,
                                     unsigned int &resultLen) {
@@ -93,8 +91,8 @@ unsigned short int* multipleByShort(unsigned short int *a,
     unsigned int buff = 0;
     for (int i = 0; i < lenA; i++) {
         buff = perenos + multiplier * a[i];
-        perenos = buff / OSN;
-        result[i] = buff % OSN;
+        perenos = buff >> SHIFT;
+        result[i] = buff;
     }
 
     if (perenos) {

@@ -14,39 +14,28 @@ unsigned short int *plusBigOsn(unsigned short int firstArray[],
 
 
 //умножение чисел разной длины
-unsigned short int *multiplyDiffLen(unsigned short int firstArray[],
+unsigned short int *multiplyDiffLenBigOsn(unsigned short int firstArray[],
                                     unsigned short int secondArray[],
                                     unsigned short int firstLen,
                                     unsigned short int secondLen,
                                     unsigned short int &resultSize);
 
 //умножение чисел одинаковой длины
-unsigned short int *multiply(unsigned short int firstArray[],
+unsigned short int *multiplyBigOsn(unsigned short int firstArray[],
                              unsigned short int secondArray[],
                              unsigned short int sizeOfSummation,
                              unsigned short int &resultSize);
+
+//умножение длинного числа на короткое
+unsigned short int* multipleByShortBigOsn(unsigned short int *a,
+                                    unsigned int lenA,
+                                    unsigned short int multiplier,
+                                    unsigned int &resultLen);
 
 //вычитание чисел одинаковой длины
 unsigned short int *minus(unsigned short int firstArray[],
                           unsigned short int secondArray[],
                           unsigned short int sizeOfDifferences);
-
-//сравнение двух чисел одинаковой длины
-int compare(unsigned short int firstArray[],
-            unsigned short int secondArray[],
-            unsigned short int sizeOfSummation);
-
-//сравнение двух чисел разной длины
-int compare(unsigned short int firstArray[],
-            unsigned short int secondArray[],
-            unsigned short int firstSize,
-            unsigned short int secondSize);
-
-//умножение длинного числа на короткое
-unsigned short int* multipleByShort(unsigned short int *a,
-                                    unsigned int lenA,
-                                    unsigned short int multiplier,
-                                    unsigned int &resultLen);
 
 unsigned short int* multiplyShortByShort();
 

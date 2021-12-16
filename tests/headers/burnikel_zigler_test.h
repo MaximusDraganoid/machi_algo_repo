@@ -1,0 +1,11 @@
+//
+// Created by max on 16.12.2021.
+//
+
+#ifndef UNTITLED_BURNIKEL_ZIGLER_TEST_H
+#define UNTITLED_BURNIKEL_ZIGLER_TEST_H
+
+void test1();
+
+
+#endif //UNTITLED_BURNIKEL_ZIGLER_TEST_H

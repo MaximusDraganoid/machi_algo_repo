@@ -38,13 +38,13 @@ unsigned short int *minusBigOsn(unsigned short int firstArray[],
                           unsigned short int sizeOfDifferences);
 
 // a div b
-unsigned short int* schoolDivision_quotient(unsigned short int *a, unsigned int lenA,
+unsigned short int* schoolDivision_quotient_BigOsn(unsigned short int *a, unsigned int lenA,
                                             unsigned short int *b, unsigned int lenB, unsigned int &resLen);
 
-unsigned short int* schoolDivisionLongByShort_quotient(unsigned short int *a, unsigned int lenA,
+unsigned short int* schoolDivisionLongByShort_quotient_BigOsn(unsigned short int *a, unsigned int lenA,
                                                        unsigned short int b, unsigned int &resLen);
 
-unsigned short int* schoolDivision_quotient_and_remainder(unsigned short int *a, unsigned int lenA,
+unsigned short int* schoolDivision_quotient_and_remainder_BigOsn(unsigned short int *a, unsigned int lenA,
                                                           unsigned short int *b, unsigned int lenB, unsigned int &resLen);
 
 #endif //UNTITLED_MATH_FUNC_BIG_OSN_H

@@ -9,24 +9,11 @@
 
 #include <iostream>
 
-//функция поиска нулей в старших разрядах
-int findZeros(unsigned short *array, unsigned int len) {
-    int count = 0;
-    for (int i = len - 1; i >= 0; i--) {
-        if (array[i] != 0) {
-            break;
-        } else {
-            count++;
-        }
-    }
-    return count;
-}
-
 // a:b
 //todo: нужно каким-либо образом предсказывать длину частного и остатка
 //todo: пока вместо выделения конкретного объема памяти, мы выделим буферы определенных размеров
 //todo: затем будем их либо увеличивать либо уменьшать
-unsigned short int* schoolDivision_quotient(unsigned short int *a, unsigned int lenA,
+unsigned short int* schoolDivision_quotient_BigOsn(unsigned short int *a, unsigned int lenA,
                                             unsigned short int *b, unsigned int lenB, unsigned int &resLen) {
     //случай, если делитель больше делимго
     if (lenA < lenB) {
@@ -166,7 +153,7 @@ unsigned short int* schoolDivision_quotient(unsigned short int *a, unsigned int 
     return result;
 }
 
-unsigned short int* schoolDivision_quotient_and_remainder(unsigned short int *a, unsigned int lenA,
+unsigned short int* schoolDivision_quotient_and_remainder_BigOsn(unsigned short int *a, unsigned int lenA,
                                                           unsigned short int *b, unsigned int lenB, unsigned int &resLen) {
     //случай, если делитель больше делимго
     if (lenA < lenB) {
@@ -313,7 +300,7 @@ unsigned short int* schoolDivision_quotient_and_remainder(unsigned short int *a,
     return q_and_r;
 }
 
-unsigned short int* schoolDivisionLongByShort_quotient(unsigned short int *a, unsigned int lenA,
+unsigned short int* schoolDivisionLongByShort_quotient_BigOsn(unsigned short int *a, unsigned int lenA,
                                                        unsigned short int b, unsigned int &resLen) {
 
     resLen = lenA;

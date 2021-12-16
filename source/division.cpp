@@ -5,19 +5,6 @@
 #include "../headers/util_function.h"
 #include <iostream>
 
-//функция поиска нулей в старших разрядах
-int findZeros(unsigned short *array, unsigned int len) {
-    int count = 0;
-    for (int i = len - 1; i >= 0; i--) {
-        if (array[i] != 0) {
-            break;
-        } else {
-            count++;
-        }
-    }
-    return count;
-}
-
 // a:b
 //todo: нужно каким-либо образом предсказывать длину частного и остатка
 //todo: пока вместо выделения конкретного объема памяти, мы выделим буферы определенных размеров

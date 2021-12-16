@@ -1,5 +1,7 @@
 #include <iostream>
 #include "headers/math_func.h"
+#include "tests/headers/burnikel_zigler_test.h"
+#include "headers/util_function.h"
 
 //access_token git -
 //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
@@ -9,19 +11,22 @@
 
 void test();
 void testMultiplyLenByShort();
-
 void testSchoolDivision_quotient();
 void testSchoolDivisionLongByShort_quotient();
 
 int main() {
 
-    unsigned int t = 3;
-    unsigned int tt = t >> 1;
-    std::cout << t << std::endl;
-    std::cout << tt << std::endl;
-//    testSchoolDivision_quotient();
+//    unsigned int t = 3;
+//    unsigned int tt = t >> 1;
+//    std::cout << t << std::endl;
+//    std::cout << tt << std::endl;
+    printLine();
+    test1();
+    printLine();
+
     return 0;
 }
+
 
 
 void testSchoolDivisionLongByShort_quotient() {

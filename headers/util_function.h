@@ -17,4 +17,6 @@ int max(int a, int b);
 void print(unsigned short int* array, unsigned int len);
 
 void printLine();
+
+int findZeros(unsigned short *array, unsigned int len);
 #endif //UNTITLED_UTIL_FUNCTION_H

@@ -23,3 +23,16 @@ void print(unsigned short int* array, unsigned int len) {
     }
     std::cout << std::endl;
 }
+
+//функция поиска нулей в старших разрядах
+int findZeros(unsigned short *array, unsigned int len) {
+    int count = 0;
+    for (int i = len - 1; i >= 0; i--) {
+        if (array[i] != 0) {
+            break;
+        } else {
+            count++;
+        }
+    }
+    return count;
+}

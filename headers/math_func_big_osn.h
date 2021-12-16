@@ -37,8 +37,6 @@ unsigned short int *minusBigOsn(unsigned short int firstArray[],
                           unsigned short int secondArray[],
                           unsigned short int sizeOfDifferences);
 
-unsigned short int* multiplyShortByShort();
-
 // a div b
 unsigned short int* schoolDivision_quotient(unsigned short int *a, unsigned int lenA,
                                             unsigned short int *b, unsigned int lenB, unsigned int &resLen);

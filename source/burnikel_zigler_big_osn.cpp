@@ -15,7 +15,6 @@ unsigned short int* recursiveDivision_BigOsn(unsigned short int* a,
         unsigned int resultLen = 0;
         //долже возвращать склейку из целого и остатка
         unsigned short int* result = schoolDivision_quotient_and_remainder_BigOsn(a, 2 * n, b, n, resultLen);
-        print(result, resultLen);
         return result;
         //школьное деление A на B
     } else {
@@ -61,8 +60,6 @@ unsigned short int* divThreeLongHalvesByTwo_BigOsn(unsigned short int* a1,
         a1_a2[i + len] = a1[i];
     }
 
-    print(a1_a2, len * 2);
-    print(b1, len);
     unsigned short int* q = recursiveDivision_BigOsn(a1_a2, b1, len);
 
     unsigned short int resultLenOfMultiplication = 0;

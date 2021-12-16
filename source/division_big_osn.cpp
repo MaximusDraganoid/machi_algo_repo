@@ -57,20 +57,15 @@ unsigned short int* schoolDivision_quotient_BigOsn(unsigned short int *a, unsign
     while (compare(current, b, currentLen, lenB) >= 0
            || lenA - lenB - 1 - count <= lenA) {
         countOfShiftInResult++;
-        printLine();
 
         unsigned short int x = 0;
         unsigned short int l = 0, r = BIG_OSN;
-
-        print(result, resLen);
-        print(current, currentLen);
 
         //подбор множителя
         while (l <= r) {
             int m = (l + r) >> 1;
             unsigned int podobrannoyZnachenieLen = 0;
             unsigned short int* podobrannoyZnachenie = multipleByShortBigOsn(b, lenB, m, podobrannoyZnachenieLen);
-            print(podobrannoyZnachenie, podobrannoyZnachenieLen);
 
             if (currentLen >= podobrannoyZnachenieLen && compare(podobrannoyZnachenie, current, podobrannoyZnachenieLen, currentLen) <= 0) {
                 x = m;
@@ -85,7 +80,6 @@ unsigned short int* schoolDivision_quotient_BigOsn(unsigned short int *a, unsign
         unsigned int bufLen = 0;
         unsigned short int* subtracted = multipleByShortBigOsn(b, lenB, x, bufLen);
         current = minusBigOsn(current, subtracted, currentLen);
-        print(current, currentLen);
 
         if (lenA - lenB - 1 - count > lenA) {
             break;
@@ -116,7 +110,6 @@ unsigned short int* schoolDivision_quotient_BigOsn(unsigned short int *a, unsign
             for (int i = 0; i < numOfZero; i++) {
                 current[i] = 0;
             }
-            print(current, currentLen);
             if (lenB != currentLen && numOfZero > 1 ) {
                 currentLen = lenB;
                 unsigned short int* newCurrent = new unsigned short int[currentLen];
@@ -135,10 +128,9 @@ unsigned short int* schoolDivision_quotient_BigOsn(unsigned short int *a, unsign
 
         i--;
         count++;
-        print(current, currentLen);
     }
 
-    printLine();
+
     //сдвиг результата, чтобы получить корректные значения
     for (int i = 0; i < count; i++) {
         for (int j = 0; j < resLen - 1; j++) {
@@ -147,8 +139,10 @@ unsigned short int* schoolDivision_quotient_BigOsn(unsigned short int *a, unsign
         result[resLen - 1 - i] = 0;
     }
 
+    printLine();
     print(result, resLen);
     print(current, currentLen);
+    printLine();
     //todo: преобразовать вывод данных результата - есть ошибка в порядке
     return result;
 }
@@ -195,20 +189,15 @@ unsigned short int* schoolDivision_quotient_and_remainder_BigOsn(unsigned short 
 
     while (compare(current, b, currentLen, lenB) >= 0
            || lenA - lenB - 1 - count <= lenA) {
-        printLine();
 
         unsigned short int x = 0;
         unsigned short int l = 0, r = BIG_OSN;
-
-        print(result, resLen);
-        print(current, currentLen);
 
         //подбор множителя
         while (l <= r) {
             int m = (l + r) >> 1;
             unsigned int podobrannoyZnachenieLen = 0;
             unsigned short int* podobrannoyZnachenie = multipleByShortBigOsn(b, lenB, m, podobrannoyZnachenieLen);
-            print(podobrannoyZnachenie, podobrannoyZnachenieLen);
 
             if (currentLen >= podobrannoyZnachenieLen && compare(podobrannoyZnachenie, current, podobrannoyZnachenieLen, currentLen) <= 0) {
                 x = m;
@@ -223,7 +212,6 @@ unsigned short int* schoolDivision_quotient_and_remainder_BigOsn(unsigned short 
         unsigned int bufLen = 0;
         unsigned short int* subtracted = multipleByShortBigOsn(b, lenB, x, bufLen);
         current = minusBigOsn(current, subtracted, currentLen);
-        print(current, currentLen);
 
         if (lenA - lenB - 1 - count > lenA) {
             break;
@@ -254,7 +242,6 @@ unsigned short int* schoolDivision_quotient_and_remainder_BigOsn(unsigned short 
             for (int i = 0; i < numOfZero; i++) {
                 current[i] = 0;
             }
-            print(current, currentLen);
             if (lenB != currentLen && numOfZero > 1 ) {
                 currentLen = lenB;
                 unsigned short int* newCurrent = new unsigned short int[currentLen];
@@ -273,7 +260,6 @@ unsigned short int* schoolDivision_quotient_and_remainder_BigOsn(unsigned short 
 
         i--;
         count++;
-        print(current, currentLen);
     }
 
     //сдвиг результата, чтобы получить корректные значения
@@ -289,8 +275,12 @@ unsigned short int* schoolDivision_quotient_and_remainder_BigOsn(unsigned short 
     currentLen = DIV_LIM;
 
     printLine();
+    std::cout << "result" << std::endl;
     print(result, resLen);
+    std::cout << "current" << std::endl;
     print(current, currentLen);
+    printLine();
+
     unsigned short int* q_and_r = new unsigned short int[resLen + currentLen];
     for (int i = 0; i < resLen; i++) {
         q_and_r[i] = result[i];
@@ -300,6 +290,7 @@ unsigned short int* schoolDivision_quotient_and_remainder_BigOsn(unsigned short 
         q_and_r[resLen + i] = current[i];
     }
     resLen = resLen + currentLen;
+    
     return q_and_r;
 }
 

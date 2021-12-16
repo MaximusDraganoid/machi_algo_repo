@@ -16,10 +16,6 @@ void testSchoolDivisionLongByShort_quotient();
 
 int main() {
 
-//    unsigned int t = 3;
-//    unsigned int tt = t >> 1;
-//    std::cout << t << std::endl;
-//    std::cout << tt << std::endl;
     printLine();
     test1_big_osn();
     printLine();

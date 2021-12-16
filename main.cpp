@@ -21,7 +21,7 @@ int main() {
 //    std::cout << t << std::endl;
 //    std::cout << tt << std::endl;
     printLine();
-    test1();
+    test1_big_osn();
     printLine();
 
     return 0;

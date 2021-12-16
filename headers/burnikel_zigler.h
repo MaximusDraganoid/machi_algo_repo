@@ -7,7 +7,8 @@
 
 //a - 2 words
 //b - 1 word
-unsigned short int* divTwoDigitsByOne(unsigned int a[], unsigned int b[]);
+unsigned short int* divTwoDigitsByOne(unsigned short int a[],
+                                      unsigned short int b[]);
 
 unsigned short int* divThreeHalvesByTwo(unsigned short int a1,
                          unsigned short int a2,

@@ -276,7 +276,6 @@ unsigned short int* schoolDivision_quotient_and_remainder_BigOsn(unsigned short 
         print(current, currentLen);
     }
 
-    printLine();
     //сдвиг результата, чтобы получить корректные значения
     for (int i = 0; i < count; i++) {
         for (int j = 0; j < resLen - 1; j++) {
@@ -285,6 +284,11 @@ unsigned short int* schoolDivision_quotient_and_remainder_BigOsn(unsigned short 
         result[resLen - 1 - i] = 0;
     }
 
+    //избавляемся от ведущих нулей в результате
+    resLen = DIV_LIM;
+    currentLen = DIV_LIM;
+
+    printLine();
     print(result, resLen);
     print(current, currentLen);
     unsigned short int* q_and_r = new unsigned short int[resLen + currentLen];
@@ -296,7 +300,6 @@ unsigned short int* schoolDivision_quotient_and_remainder_BigOsn(unsigned short 
         q_and_r[resLen + i] = current[i];
     }
     resLen = resLen + currentLen;
-    //todo: преобразовать вывод данных результата - есть ошибка в порядке
     return q_and_r;
 }
 

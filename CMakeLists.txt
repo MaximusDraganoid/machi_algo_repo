@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.21)
+cmake_minimum_required(VERSION 3.19)
 project(untitled)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(untitled main.cpp impl/math_func.cpp impl/math_func.h impl/util_function.h impl/util_function.cpp burnikel_zigler_division/function.h burnikel_zigler_division/function.cpp)
+add_executable(untitled main.cpp source/division.cpp headers/math_func.h headers/util_function.h source/util_function.cpp headers/burnikel_zigler.h source/burnikel_zigler.cpp source/add.cpp source/add.cpp source/compare.cpp source/difference.cpp source/multiplication.cpp)

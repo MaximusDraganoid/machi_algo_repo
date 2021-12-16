@@ -1,5 +1,5 @@
 #include <iostream>
-#include "impl/math_func.h"
+#include "headers/math_func.h"
 
 //числа записаны в обратном порядке. Т.е. числов 123 в массиве будет представлено
 // как [3, 2, 1].

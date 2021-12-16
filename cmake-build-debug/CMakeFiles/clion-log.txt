@@ -1,4 +1,16 @@
-"C:\Program Files\JetBrains\CLion 2021.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2021.3/bin/ninja/win/ninja.exe" -G Ninja C:\Users\mmaslov\CLionProjects\untitled
+/opt/clion-2021.1.2/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/max/Научка/code/machi_algo_repo
 -- Configuring done
--- Generating done
--- Build files have been written to: C:/Users/mmaslov/CLionProjects/untitled/cmake-build-debug
+CMake Error at CMakeLists.txt:6 (add_executable):
+  Cannot find source file:
+
+    impl/math_function/multiplication/test.cpp
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .m .M .mm .h .hh .h++ .hm
+  .hpp .hxx .in .txx .f .F .for .f77 .f90 .f95 .f03 .ispc
+
+
+CMake Error at CMakeLists.txt:6 (add_executable):
+  No SOURCES given to target: untitled
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.

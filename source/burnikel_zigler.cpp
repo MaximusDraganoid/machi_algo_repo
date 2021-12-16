@@ -2,9 +2,9 @@
 // Created by mmaslov on 10.12.2021.
 //
 
-#include "function.h"
-#include "../impl/math_func.h"
-#include "../impl/util_function.h"
+#include "../headers/burnikel_zigler.h"
+#include "../headers/math_func.h"
+#include "../headers/util_function.h"
 
 
 //todo: проверить верность работы операций со сдвигами!!! возможно есть ошибка в текущей работе с ними

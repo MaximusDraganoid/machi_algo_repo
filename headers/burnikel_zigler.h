@@ -2,8 +2,8 @@
 // Created by mmaslov on 09.12.2021.
 //
 
-#ifndef UNTITLED_FUNCTION_H
-#define UNTITLED_FUNCTION_H
+#ifndef UNTITLED_BURNIKEL_ZIGLER_H
+#define UNTITLED_BURNIKEL_ZIGLER_H
 
 //a - 2 words
 //b - 1 word
@@ -27,4 +27,4 @@ unsigned short int* recursiveDivision(unsigned short int* a,
                                       unsigned short int* b,
                                       unsigned int n);
 
-#endif //UNTITLED_FUNCTION_H
+#endif //UNTITLED_BURNIKEL_ZIGLER_H

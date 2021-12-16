@@ -6,6 +6,7 @@
 #define UNTITLED_UTIL_FUNCTION_H
 
 //int const OSN = 65535;
+int const BIG_OSN = 65535;
 int const OSN = 10;
 int const DIV_LIM = 4;
 

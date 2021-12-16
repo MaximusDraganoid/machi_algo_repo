@@ -1,7 +1,7 @@
 //
 // Created by mmaslov on 07.12.2021.
 //
-#include "util_function.h"
+#include "../headers/util_function.h"
 #include <iostream>
 
 int max(int a, int b) {

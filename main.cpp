@@ -12,7 +12,11 @@ void testSchoolDivisionLongByShort_quotient();
 
 int main() {
 
-    testSchoolDivisionLongByShort_quotient();
+    unsigned int t = 3;
+    unsigned int tt = t >> 1;
+    std::cout << t << std::endl;
+    std::cout << tt << std::endl;
+//    testSchoolDivision_quotient();
     return 0;
 }
 

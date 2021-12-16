@@ -7,6 +7,8 @@
 
 //int const OSN = 65535;
 int const BIG_OSN = 65535;
+int const SHIFT = 16;
+
 int const OSN = 10;
 int const DIV_LIM = 4;
 

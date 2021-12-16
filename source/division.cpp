@@ -61,9 +61,11 @@ unsigned short int* schoolDivision_quotient(unsigned short int *a, unsigned int 
     int count = 0;
 
     int i = lenA - 1;
+    unsigned int countOfShiftInResult = 0;
 
     while (compare(current, b, currentLen, lenB) >= 0
         || lenA - lenB - 1 - count <= lenA) {
+        countOfShiftInResult++;
         printLine();
 
         unsigned short int x = 0;
@@ -146,6 +148,14 @@ unsigned short int* schoolDivision_quotient(unsigned short int *a, unsigned int 
     }
 
     printLine();
+    //сдвиг результата, чтобы получить корректные значения
+    for (int i = 0; i < count; i++) {
+        for (int j = 0; j < resLen - 1; j++) {
+            result[j] = result[j + 1];
+        }
+        result[resLen - 1 - i] = 0;
+    }
+
     print(result, resLen);
     print(current, currentLen);
     //todo: преобразовать вывод данных результата - есть ошибка в порядке
@@ -167,7 +177,6 @@ unsigned short int* schoolDivisionLongByShort_quotient(unsigned short int *a, un
     }
 
     std::cout << " Ostatok: " << ost << std::endl;
-
 
     return result;
 }
@@ -296,6 +305,14 @@ unsigned short int* schoolDivision_quotient_and_remainder(unsigned short int *a,
     }
 
     printLine();
+    //сдвиг результата, чтобы получить корректные значения
+    for (int i = 0; i < count; i++) {
+        for (int j = 0; j < resLen - 1; j++) {
+            result[j] = result[j + 1];
+        }
+        result[resLen - 1 - i] = 0;
+    }
+
     print(result, resLen);
     print(current, currentLen);
     unsigned short int* q_and_r = new unsigned short int[resLen + currentLen];
